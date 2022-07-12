@@ -129,19 +129,36 @@ Here are the various locomotives you can find used throughout these examples:
     - Name/Number
     - Type
     - Era
+    - Operator
     - Location
   * - 1
     - DH72
     - Diesel Hydraulic
     - Early Modern
+    - Queensland Rail
     - Queensland, Australia
   * - 2
     - RM2031
     - Railcar
     - Early Modern
+    - Queensland Rail
     - Queensland, Australia
   * - 3
     - 2350
     - Diesel Electric
     - Early Modern
+    - Queensland Rail
     - Queensland, Australia
+  * - 4
+    - "Pere Marquette" 1225
+    - Berkshire 2-8-4 N1 Class
+    - 
+    - 
+    - 
+  * - 5
+    - "Mallard" LNER 4468
+    - Gresley 4-6-2 Class A4
+    - 
+    - 
+    - 
+
