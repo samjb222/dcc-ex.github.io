@@ -29,10 +29,23 @@ At the end of stage 1, we expect you will learn the following:
 * How an object ID is different to the pin or configuration used by the physical object it represents.
 * How to enable layout automation while still manually controlling the trains.
 * How to enable a fully automated layout.
-* What hardware can be used, and how to connect the components (Fritzing diagrams for this will be published soon).
+* What hardware can be used, and how to connect the components.
 
 .. raw:: html
   :file: ../_static/images/big-picture/rmft-stage1.drawio.svg
+
+Hardware components and connections
+====================================
+
+Outlined here are some of the diagrams to help visualise how to connect the various components in some of the scenarios below. Note that we aren't diagramming every possible option here to avoid a page that is too long to be useful.
+
+Using Mega2560 I/O pins only
+_____________________________
+
+.. raw:: html
+  :file: ../_static/images/big-picture/rmft-stage1-pin-turnouts-mega.svg
+
+This first diagram outlines how to connect pin based turnouts with a capacitive discharge turnout controller, pin based three aspect signals, and infrared sensors connected directly to the Mega2560 digital I/O pins.
 
 Aliases
 ========
@@ -84,6 +97,9 @@ In EX-RAIL, we would add these lines to myAutomation.h, with aliases defined:
 Pin turnouts
 ^^^^^^^^^^^^^
 
+Pin turnouts on Mega2560 pins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 To define these same turnout IDs as pin turnouts instead, and using I/O pins that are directly on our CommandStation-EX Mega2560, we will use pins 22 and 23.
 
 To define these in the serial console:
@@ -102,6 +118,9 @@ In EX-RAIL, we would add these lines to myAutomation.h:
 
   PIN_TURNOUT(TRN1, 22, "Station entry")
   PIN_TURNOUT(TRN2, 23, "Station exit")
+
+Pin turnouts on MCP23017 Vpins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If we were instead to use an MCP23017 I/O expander, we would use Vpins instead of direct pins on the Mega2560, and we would start these at the first I/O expander's 164 Vpin ID.
 
@@ -165,6 +184,9 @@ Five sensors are used in this first stage, which allows us to have up to three t
 
 We don't need to explicitly define any sensor objects to work with EX-RAIL, so we will simply map these by defining EX-RAIL aliases.
 
+Sensors on Mega2560 pins
+_________________________
+
 To use pins directly on our Mega2560, we would start at pin 24 (we used pins 22/23 for turnouts):
 
 .. code-block:: 
@@ -174,6 +196,9 @@ To use pins directly on our Mega2560, we would start at pin 24 (we used pins 22/
   ALIAS(SNS3_STN, 26)            // Sensor 3, at our station stop
   ALIAS(SNS4_MAIN_TRN2_APP, 27)  // Sensor 4, on the main track approaching turnout 2
   ALIAS(SNS5_STN_TRN2_APP, 28)   // Sensor 5, on the station siding approaching turnout 2
+
+Sensors on MCP23017 Vpins
+__________________________
 
 Moving these to our first MCP23017 I/O expander, these would start at Vpin 166 (we used Vpins 164/165 for turnouts):
 
@@ -195,6 +220,9 @@ __________________
 
 To use pin based signals, we require three pins per signal, and therefore nine pins in total, but we will only define an alias for the red pin given that it is the "control" pin for each signal. The other pins are used in the background by DCC++ EX and are not referenced anywhere else outside the object definition.
 
+Signals on Mega2560 pins
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To define pin based signals directly on the Mega2560 with aliases for the control pins:
 
 .. code-block:: 
@@ -206,6 +234,9 @@ To define pin based signals directly on the Mega2560 with aliases for the contro
   SIGNAL(SIG1_TRN1_APP, 31, 32)
   SIGNAL(SIG2_TRN2_GO, 34, 35)
   SIGNAL(SIG3_STN_EX, 37, 38)
+
+Signals on MCP23017 Vpins
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Moving these again to an MCP23017 I/O expander, these would start at Vpin 172, however this also overlaps to a second I/O expander by one pin:
 
