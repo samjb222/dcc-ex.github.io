@@ -28,48 +28,30 @@ Designed by the |DCC-EX| development team, the EX-CSB1 replaces up to 3 differen
 
 What is the EX-CSB1 Express?
 =============================
+The EX-CSB1 Express is the first fully integrated DCC Command Station with DC PWM capabilities, developed by the DCC-EX Team. This versatile board can function as a complete command station with USB or WiFi connectivity or serve as a stand-alone booster, making it an ideal addition to any layout, including those using non-DCC-EX systems.
 
-The |EX-CSB1| is the first complete DCC Command Station capable of DC PWM with Booster mode from the DCC-EX Team. That's right, one board that can function as a full USB connected or Wireless WiFi Command Station or be deployed as a stand-alone booster anywhere on your layout! The EX-CSB1 saves you money while allowing you to more easily expand your layout XXX (really want to say something about booster mode being useful for non-DCC-EX DCC systems??)
+Key Features:
+All-in-One Command Station/Booster: Compatible with DCC and capable of PWM DC output.
+Built-in Fast WiFi: Supports up to 10 simultaneous throttle connections, expandable with JMRI.
+Advanced Hardware: Utilizes an ESP32 microcontroller with dual DCC or PWM DC 5A outputs, including variable current limit control.
+Expandable Outputs: Can accept an EX-MotorShield8874 for two additional DCC/DC PWM/PROG outputs, providing power to four total districts.
+Protection & Safety: Programmable over-current protection, auto-reverser capability, and RailSync DCC input for automatic booster mode engagement.
+Versatile Power Supply: Operates with a single 12V to 25V power supply for the entire system.
+USB-C Interface: For easy software updates, connection to EXWebThrottle or JMRI, and logging/debugging.
+Accessory Support: Qwiic/STEMMA QT 3v3 compatible I2C connector for accessories like displays and lighting.
+OLED Display: Bundled graphical display for status and diagnostics, with support for additional displays.
+Benefits:
+Ready to Use: Pre-assembled, with no need for additional assembly or configuration.
+Enhanced Performance: More memory than an Arduino Mega for complex EXRAIL automation/animation scripts.
+Efficient Power Usage: Less voltage drop, ensuring more power reaches the track.
+Flexible Output Management: Dynamically assign outputs to different modes (DC/DCC/Prog), with NMRA current limits.
+The EX-CSB1's robust, single-PCB design includes integrated MOSFET motor drivers from Texas Instruments, providing up to 5A peak power per track output. This allows for simultaneous operation of multiple locomotives with reduced power consumption and heat generation compared to traditional systems.
 
-Features include:
-  * All-in-one DCC compatible Command Station/Booster with PWM DC output capability
-  * Fast Wifi built-in
-  * Runs DCC-EX Command Station Software (Open Source, so FREE **and** having new features added) XXX huh?
-  * ESP32 fast 32-bit microcontroller with built-in WiFi for up to 10 simultaneous throttle connections (more with JMRI)
-  * Dual DCC or PWM DC 5A outputs and variable limit software to control current to the tracks
-  * Accepts an EX-MotorShield8874 for additional 2 DCC/DC PWM/PROG outputs
-  * DC outputs for 4 total power districts!
-  * Programmable over-current protection on each output
-  * Auto-reverser capability on any DCC output
-  * RailSync DCC signal input for DCC Booster mode
-  * DCC Booster mode can be automatically engaged on receipt of a RailSync DCC input signal - perfect for modular layouts!
-  * Single power supply required (12V to 25V) to power the command station and the tracks!
-  * USB-C connection for software updates, connection to EXWebThrottle or JMRI, and full logging/debugging
-  * Qwiic/STEMMA QT 3v3 compatible I2C connector for accessories like displays, turnouts, lighting, etc.
-  * Bundled graphical OLED display for status and diagnostics (extra displays can be added for status or station displays)
-  * Short circuit protection for both tracks and reverse voltage input protection
+With its dual role as a command station or booster, the EX-CSB1 can be strategically placed around a layout, seamlessly switching to booster mode upon detecting a RailSync input signal. This feature is particularly useful for modular layouts, ensuring smooth operation across different sections.
 
-Benefits include: 
-  * Works immediately out of the box - no need to assemble
-  * More memory for larger EXRAIL automation/animation scripts than an Arduino Mega
-  * Less voltage drop so that more of the power from the power supply reaches the track
-  * No jumper wires, trace cutting, or bending pins required
-  * Dynamically assign any output to programming mode, with NMRA current limit enforced
-  * TrackManager :sup:`tm` support for configuring any output to any one of the DC/DCC/Prog modes to suit your layout
+The system includes comprehensive protection features such as reverse polarity protection, hardware and software overcurrent protection, overvoltage protection, and thermal protection. It also provides clear status indications via LEDs for microcontroller power, track input supply, and WiFi connection status.
 
-The EX-CSB1 is based on the 32-bit ESP32 microcontroller that operates on 3.3V rather than 5V for increased efficiency and more options for powering the board. It uses a robust, single-PCB design with dual outputs to provide an expandible Command Station and/or Booster in a small portable form factor.
-
-The EX-CSB1 comes with two integrated MOSFET based motor drivers from Texas Instruments to reduce power consumption, put more power to the layout, and generate less heat than traditional solutions. They provide up to 5A peak power to each track output to be able to run more locos simultaneously. An additional EX-MotorShield 8874 can be plugged on top of the command station board to provide two more DCC or PWM DC outputs.
-
-Since the EX-CSB1 can be a booster or a command station, you can spread more of them around your layout connected to the Railsync port. The CSB1 can automatically switch to booster mode when it senses a Railsync input.
-
-The EX-CSB1 also has auto-reverser mode which can be enabled for any DCC output on a per-output basis. An overload is first tested with a reversing of the phase before deciding if the overload remains present.
-
-Just a single 12V to 25V power supply is required to power the track and all the electronics on the EX-CSB1. The reverse polarity protection on the power input prevents damage to the circuit and its components in case the power supply is accidentally connected backwards. In addition, there is both hardware and software backup over current protection, over voltage protection, and over heating protection.
-
-The EX-CSB1 features two power status LEDs, which provide visual indication of the microcontroller power status and track input supply status in addition to separate LEDs to show each side of the A and B power outputs to show the DCC and DC status of power to the tracks. There is also an LED that lights once Wifi is connected (STA mode) or available (AP mode.)
-
-The built-in EXRAIL Automation and Animation capability lets you use pre-written scripts or ones you can create yourself to operate everything on the layout. Trains can run pre-determined routes, automatically stop for each other, operate crossings, signals,turnouts, and more.
+The EX-CSB1's built-in EXRAIL Automation and Animation capabilities enable advanced control of layout operations, including automated train routing, crossing control, signal management, and more.
 
 
 Why did we make it?
